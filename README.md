@@ -1,6 +1,6 @@
-# Welcome to Advanced Node.js 🚀
+# Welcome to Basic Node.js 🚀
 
-This is a subject where we will learn the advanced features of Node.js using JavaScript as programming language. In this subject the main focus would be to revise the concepts that we learned from Advanced JavaScript and Basic Node.js and explain some more complex features of the runtime environment and prepare well for the next subjects. The course will last 15 modules and will consist of new concepts as well as exercises and workshop classes in order to get one's hands on the code that is learned in class. Hope you have fun and good luck 😉
+This is a subject where we will learn the basic features of Node.js using JavaScript as programming language. Hope you have fun and good luck 😉
 
 ## Navigation 🧭
 
