@@ -71,3 +71,54 @@ const printStudentInfo = ({
 printStudentInfo(student);
 
 // Copying objects and arrays
+
+const person = {
+  firstName: "Jane",
+  lastName: "Doe",
+  age: 35,
+};
+
+// Avoid like the plague
+// const personCopy = person;
+
+// Always use spread operator to copy objects to avoid headaches
+const personCopy = { ...person };
+
+personCopy.lastName = "Petrovski";
+
+console.log("Original", person);
+console.log("Copy", personCopy);
+
+const leftHalfNums = [1, 2, 3, 4, 5];
+const rightHalfNums = [6, 7, 8, 9, 10];
+
+const wholeNumsArr = [...leftHalfNums, ...rightHalfNums, 11, 12, 13, 14, 15];
+const wholeNumsCopy = [...wholeNumsArr];
+
+wholeNumsArr.sort((a, b) => b - a);
+
+console.log(wholeNumsArr);
+console.log(wholeNumsCopy);
+
+// this keyword recap
+
+class Person {
+  constructor(firstName, lastName, age) {
+    // Use when defining properties in classes/objects
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  // Use always in class/object methods
+  printFullName() {
+    const { firstName, lastName } = this;
+
+    // console.log("From method", this);
+    console.log(`Person's full name is: ${firstName} ${lastName}`);
+  }
+}
+
+const bobbyPerson = new Person("Bob", "Bobsky", 89);
+
+bobbyPerson.printFullName();
