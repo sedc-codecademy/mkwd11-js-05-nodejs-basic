@@ -1,0 +1,15 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "a simple node project made by g12 trainer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.9.0"
+  }
+}
