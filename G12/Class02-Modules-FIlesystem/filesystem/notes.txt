@@ -1,1 +1,2 @@
-From the async write function, and appended async!
+From the promises function 
+, and i've been updated from promise function
