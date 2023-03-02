@@ -1,0 +1,42 @@
+[
+    {
+        "id": "bad82212-d28b-456d-ac2c-2e170434f837",
+        "task": "Teach programming",
+        "isFinished": true
+    },
+    {
+        "id": "20db6efd-f657-4781-8052-70d439d2a70c",
+        "task": "Study progamming",
+        "isFinished": true
+    },
+    {
+        "id": "05c2531c-4838-4ba8-8b8f-6fb89b4eecf9",
+        "task": "Debug programming",
+        "isFinished": true
+    },
+    {
+        "id": "061e15a2-2994-4807-8528-60c50c2cd54d",
+        "task": "Fix nodemon",
+        "isFinished": true
+    },
+    {
+        "id": "4a6ad6ad-342f-4b9c-b950-3098a8556602",
+        "task": "Finish class",
+        "isFinished": true
+    },
+    {
+        "id": "59837764-4915-4750-bac0-bd7d9d0af832",
+        "task": "Ask questions",
+        "isFinished": true
+    },
+    {
+        "id": "21d8e374-3808-43a1-a912-2eb301442532",
+        "task": "Finish them all",
+        "isFinished": true
+    },
+    {
+        "id": "some id",
+        "task": "Vjezbaj pizda ti materina",
+        "isFinished": false
+    }
+]
