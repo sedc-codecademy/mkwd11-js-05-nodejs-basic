@@ -1,0 +1,1 @@
+I was written with async fs method
