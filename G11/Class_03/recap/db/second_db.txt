@@ -1,0 +1,2 @@
+I overwrite the previous content.
+I was appended.
