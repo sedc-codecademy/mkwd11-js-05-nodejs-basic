@@ -72,12 +72,29 @@ const updateTask = async taskid => {
   }
 };
 
+// 5. Delete task
+const deleteTask = async taskId => {
+  // Read all tasks
+  const tasks = await getAllTasks();
+
+  const updatedTasks = tasks.filter(task => task.id !== taskId);
+
+  console.log("Original tasks length ", tasks.length);
+  console.log("Updated tasks legnth ", updatedTasks.length);
+
+  if (updatedTasks.length === tasks.length) throw new Error("Task not found");
+
+  await saveTasks(updatedTasks);
+};
+
 const app = async () => {
   // await createTask("First task");
   // await createTask("Second task");
   // await createTask("Third task");
-  await updateTask("04b936b5-0c05-4d5e-b8fd-eea30a1e861c");
+  // await updateTask("04b936b5-0c05-4d5e-b8fd-eea30a1e861c");
+  await deleteTask("d6013a74-f671-4bdf-b1be-e27479a2795f");
   const tasks = await getAllTasks();
+  console.log(tasks);
 };
 
 app();

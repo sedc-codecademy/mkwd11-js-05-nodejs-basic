@@ -43,5 +43,28 @@ emitter.on("arrow", () => {
   console.log(this);
 });
 
-emitter.emit("function");
-emitter.emit("arrow");
+// emitter.emit("function");
+// emitter.emit("arrow");
+
+// Multiple event listeners for same event (executed sync on event emit)
+emitter
+  .on("message", () => {
+    console.log("first message listener");
+  })
+  .on("message", () => {
+    console.log("second message listener");
+  })
+  .on("message", () => {
+    console.log("third message listener");
+  });
+
+// emitter.emit("message");
+
+// Emitting only once using the .once listener
+emitter.once("once", () => {
+  console.log("Once event fired");
+});
+
+emitter.emit("once");
+emitter.emit("once");
+emitter.emit("once");
