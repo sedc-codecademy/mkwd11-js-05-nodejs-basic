@@ -54,11 +54,32 @@ const server = http.createServer((request, response) => {
     return response.end();
   }
 
+  if (url === "/movies" && method === "POST") {
+    response.setHeader("Content-Type", "text/html");
+    response.write("<h1>We are at /movies route</h1>");
+
+    const chunksReceived = [];
+
+    request.on("data", chunk => {
+      console.log(chunk);
+      chunksReceived.push(chunk);
+    });
+
+    request.on("end", () => {
+      const parsedData = Buffer.concat(chunksReceived).toString();
+
+      const data = parsedData.split("=");
+      const movieName = data[1].split("+").join(" ");
+
+      console.log("The movie is: ", movieName);
+      // console.log(parsedData);
+    });
+
+    return response.end();
+  }
+
   return response.end();
 });
-
-if (url === "/movies" && method === "POST") {
-}
 
 // Starting the server on the designated port
 server.listen(3000, () => {
