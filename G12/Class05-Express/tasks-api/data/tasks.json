@@ -1,0 +1,14 @@
+[
+  {
+    "id": "69585e2b-5155-4cf7-9677-300391d2c85d",
+    "text": "First task created from express",
+    "author": "Ivo",
+    "isFinished": false
+  },
+  {
+    "id": "e7110d94-f4c5-4b48-872f-581674feca9f",
+    "text": "Test express task creation",
+    "author": "Filip",
+    "isFinished": false
+  }
+]
