@@ -1,5 +1,5 @@
 import express from "express";
-
+import router from "./routes.js";
 
 const app = express();
 
@@ -15,57 +15,20 @@ app.use((req, res, next) => {
     next(); 
 })
 
-
 //Exercise #2: Create middleware to show time of the request
+const timeOfRequest = (req, res, next) => {
+    let time = new Date().toLocaleString();
 
+    console.log(`Request made to server at: ${time}`)
 
-//Creating routes
-//This route will be hit with GET method
-app.get("/", (request, response) => { // localhost:3000 => default route
-    //console.log(request);
-    //request => we access the call made to this route
-    //response => we use it to return result to the user that requested this route =)
-    response.send("<h1>Default route / using express =)</h1>")
-});
+    next();
+}
 
-//localhost:3000/about
-app.get("/about", (request, response) => {
-    response.setHeader("Content-Type", 'text/html');
-    response.send("<h1>About route /about using express</h1>");
-})
+app.use(timeOfRequest);
 
-//Exerice #1: Create get route /student_info;
-//in h1 elemet return tot he user your fullname; age and subject that you study
-app.get("/student_info", (request, response) => {
-    response.send("<h1>Fullname: Gjorge Dimitrov; 28; NodeJs</h1>")
-})
+app.use(express.json());
 
-//We can return JSON; request; response
-app.get("/students", (req, res) => {
-    const students = [
-        {id: 1, name: "Lebron", age: 28, gender: "male"},
-        {id: 2, name: "Lesa Lesly", age: 27, gender: "female"}
-    ];
-
-    // res.setHeader("Content-Type", 'application/json');
-    res.send(JSON.stringify(students))
-})
-
-// * is WILDCARD MEANS ALL REST
-// Every non-existing route
-// will hit here =)
-app.get("*", (req, res) => {
-    // res.status(404)
-    // res.send("<h1>HTTP: 404 NOT FOUND AMIGO</h1>")
-
-    //same as above in one line
-    // res.status(404).send("<h1>HTTP: 404 NOT FOUND AMIGO</h1>")
-
-    // res.status(404).send({err_message: "PAGE NOT FOUND"});
-
-    res.redirect("/");
- 
-})
+app.use(router); // In this middleware we use the Router that has all the predefined routes =)
 
 
 app.listen(3000, () => {
