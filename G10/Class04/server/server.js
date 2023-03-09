@@ -7,6 +7,14 @@ const server = http.createServer((request, response) => {
     const url = request.url;
     const method = request.method;
 
+    // CORS
+    /* 
+    By default, you're not allowed to make requests from different origins.
+    An origin is an object made up of the HOST + PORT
+    So by default, if you try to send a request from origin http://localhost:5500
+    to http://localhost:3000 you need to tell the response that it's allowed to 
+    respond to that origin.
+    */
     response.setHeader('Access-Control-Allow-Origin', '*')
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH, OPTIONS')
     response.setHeader('Access-Control-Max-Age', 2592000)
@@ -27,10 +35,28 @@ const server = http.createServer((request, response) => {
         }
 
         if (method === 'POST') {
+            /* 
+            When data is sent through the internet, 
+            it is being split into chunks of data.
+            This data has to be assembled and parsed on arrival.
+            */
+
+            /*
+            Requests in NodeJS have an .on() method that listen to different kinds of events.
+            Every time a chunk of data arrives at it's destination an event called data is fired.
+            NodeJS is able to listen to this event, and fire off a callback function. Works exactly like 
+            .addEventListener() on the front end.
+            */
             let body = [];
             request.on('data', (chunk) => {
                 body.push(chunk)
             })
+
+            /*
+            Another type of event is end.
+            End is an event that is fired when all the data chunks 
+            have arrived at the destination. 
+            */
 
             request.on('end', () => {
                 const stringifiedBody = Buffer.concat(body).toString();
@@ -106,9 +132,10 @@ const server = http.createServer((request, response) => {
         }
     }
 
+    // e.g How to make a simple response
     // response.setHeader('Content-Type', 'text/html')
     // response.write('<h1>Hello from the server side</h1>')
-    response.end()
+    // response.end()
 })
 
 server.listen(3000, () => {
