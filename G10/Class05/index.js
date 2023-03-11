@@ -30,3 +30,11 @@ app.use('/static-page', express.static(staticPageOne))
 app.listen(PORT, HOSTNAME, () => {
     console.log(`Server started listening on http://${HOSTNAME}:${PORT}`)
 })
+
+
+// CRUD
+
+// C - Create - POST
+// R - Read - GET
+// U - Update - PUT - PATCH
+// D - Delete - DELETE
