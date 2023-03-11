@@ -13,7 +13,7 @@ export const getStudentsData = (query) => {
     let students = JSON.parse(fs.readFileSync(studentsDbPath, { encoding: 'utf-8' }))
 
     if (students?.length <= 0) {
-        throw new Error('There are no students')
+        return students
     }
 
     if (query?.gender) {
