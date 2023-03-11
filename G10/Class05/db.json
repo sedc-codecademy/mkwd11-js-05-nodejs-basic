@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 25,
+    "gender": "M",
+    "country": "MKD",
+    "email": "john.doe@gmail.com",
+    "grade": 4,
+    "id": "761442d1-ed0b-429a-9584-e6689e16ff78"
+  }
+]
