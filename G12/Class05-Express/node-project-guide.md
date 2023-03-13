@@ -4,7 +4,7 @@
 4. Create project .js files
 5. Install dependencies (ex `npm i express`)
 6. Install nodemon `npm i nodemon -D`
-7. Add start and dev scripts in package.json:
+7. Add start and dev scripts in package.json (overwrite exisitng scripts property):
 
 ```
   "scripts": {

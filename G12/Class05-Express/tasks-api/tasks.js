@@ -20,6 +20,7 @@ export const getAllTasks = async () => {
 export const getTaskById = async taskId => {
   const tasks = await getAllTasks();
 
+  // .find returns either the first element form which the expression in the callback is true or it returns undefined
   const foundTask = tasks.find(task => task.id === taskId);
 
   if (!foundTask) throw new Error("Task not found");
@@ -68,7 +69,7 @@ export const updateTask = async (taskId, updateData) => {
 
   return updatedTask;
 };
-// 5. Delete task
+// 5. Delete task (taskId is the id of the task to be deleted)
 export const deleteTask = async taskId => {
   // Read all tasks
   const tasks = await getAllTasks();
@@ -81,3 +82,6 @@ export const deleteTask = async taskId => {
 };
 
 // 6. Delete all tasks
+export const deleteAllTasks = async () => {
+  await saveTasks([]);
+};

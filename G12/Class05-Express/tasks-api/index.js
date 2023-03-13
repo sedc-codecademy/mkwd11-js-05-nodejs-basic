@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createTask,
+  deleteAllTasks,
   deleteTask,
   getAllTasks,
   getTaskById,
@@ -10,6 +11,7 @@ import {
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
 
+// Creating a server by calling the express function
 const app = express();
 
 app.use(express.json());
@@ -30,7 +32,9 @@ app.get("/tasks", async (req, res) => {
 // 2. Get task by id
 app.get("/tasks/:id", async (req, res) => {
   try {
-    const taskId = req.params.id;
+    // req.params contains all dynamic path parameters
+    // const taskId = req.params.id;
+    const { id: taskId } = req.params;
 
     const foundTask = await getTaskById(taskId);
 
@@ -39,6 +43,7 @@ app.get("/tasks/:id", async (req, res) => {
     res.status(404).send(error.message);
   }
 });
+
 // 3. Create task
 app.post("/tasks", async (req, res) => {
   try {
@@ -71,20 +76,35 @@ app.patch("/tasks/:id", async (req, res) => {
     return res.status(400).send(error.message);
   }
 });
-// 5. Delete task
+// 5. Delete all tasks
+// Delete all is above delete task by id because we don't want that endopoint to catch the endpoint url
+// /tasks/:id will always catch /tasks/all
+// Homework starter , implement delete all method
+app.delete("/tasks/all", async (req, res) => {
+  try {
+    await deleteAllTasks();
+
+    return res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
+});
+
+// 6. Delete task
 app.delete("/tasks/:id", async (req, res) => {
   try {
     const taskId = req.params.id;
 
     await deleteTask(taskId);
 
-    res.status(200).send({ msg: "Deletion success!" });
+    // res.status(200).send({ msg: "Deletion success!" });
+    // 204 means that operation was successful but there is not data to send back
+    res.sendStatus(204);
   } catch (error) {
     return res.status(404).send(error.message);
   }
 });
-// 6. Delete all tasks
-// Homework starter , implement delete all method
 
 app.listen(PORT, HOST, () => {
   console.log(`Server is up at ${PORT}`);
