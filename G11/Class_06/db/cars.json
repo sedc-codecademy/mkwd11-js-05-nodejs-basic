@@ -1,0 +1,23 @@
+[
+  {
+    "id": "3",
+    "model": "Kia Ceed",
+    "yearOfProduction": 2016,
+    "isAvailable": false,
+    "priceToRent": 1300
+  },
+  {
+    "id": "2216e852-5103-4d20-a682-ed9f05ff3d8f",
+    "model": "Nissan",
+    "yearOfProduction": 2010,
+    "isAvailable": false,
+    "priceToRent": 750
+  },
+  {
+    "id": "2df7565f-13ca-4dd3-ba12-b27bb7c3c03d",
+    "model": "Toyata",
+    "yearOfProduction": 2010,
+    "isAvailable": true,
+    "priceToRent": 750
+  }
+]
