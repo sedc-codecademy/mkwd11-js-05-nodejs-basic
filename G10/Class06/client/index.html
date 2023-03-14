@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http module</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__brand">http module</div>
+      <ul class="header__nav">
+        <li id="get-reviews" class="header__nav-item">GET</li>
+      </ul>
+    </header>
+    <main class="main">
+      <section class="new-review">
+        <form class="new-review__form">
+          <input
+            type="text"
+            id="film-title"
+            class="new-review__form-input"
+            placeholder="Film Title"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            id="film-score"
+            class="new-review__form-input"
+            placeholder="Film Score"
+            autocomplete="off"
+          />
+          <textarea
+            id="film-text"
+            cols="50"
+            rows="10"
+            placeholder="Write a review"
+            class="new-review__form-input"
+          ></textarea>
+          <button type="button" id="post-review" class="btn">Submit</button>
+        </form>
+      </section>
+      <section id="posts-list" class="reviews-list">
+        
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
