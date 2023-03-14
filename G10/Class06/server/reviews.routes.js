@@ -10,9 +10,14 @@ const reviewsRoute = '/reviews';
 // method === GET
 router.get(reviewsRoute, (req, res) => {
     try {
-        
+        // get data from the service
+        const reviews = reviewsService.getReviews()
+        // return data as response
+        res.status(200).send(reviews)
     } catch (error) {
-
+        // return error
+        // res.sendStatus(500)
+        res.status(500).send('Problem while fetching reviews')
     }
 })
 
@@ -23,10 +28,12 @@ router.post(reviewsRoute, (req, res) => {
 
     try {
         // Business logic (in service)
-        reviewsService.addReview(body)
+        const review = reviewsService.addReview(body)
         // Send response
+        res.status(200).send(review)
     } catch (error) {
         // Send error
+        res.status(500).send(error.message)
     }
 })
 
