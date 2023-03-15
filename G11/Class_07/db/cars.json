@@ -19,5 +19,19 @@
     "yearOfProduction": 2010,
     "isAvailable": true,
     "priceToRent": 750
+  },
+  {
+    "id": "e5dc8690-ba7e-4e9c-ab4d-bf75077aa374",
+    "model": "Lada Niva",
+    "yearOfProduction": 2002,
+    "isAvailable": true,
+    "priceToRent": 300
+  },
+  {
+    "id": "cb8ca6cb-1f31-492b-bca7-617b895b6139",
+    "model": "Renault",
+    "yearOfProduction": 2008,
+    "isAvailable": true,
+    "priceToRent": 550
   }
 ]
