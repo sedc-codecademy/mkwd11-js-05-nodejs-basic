@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/cars", carsRouter);
+
 /**
  * USING MVC
  * make functionallity to display all motorbikes on route /motor_bikes
