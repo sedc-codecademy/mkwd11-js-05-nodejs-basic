@@ -73,4 +73,21 @@ export class StudentModel {
 
     return updatedStudent;
   }
+  // 5. Delete all students
+  static async deleteAllStudents() {
+    await this.saveStudents([]);
+  }
+  // 6. Delete student by id
+  static async deleteStudent(studentId) {
+    const students = this.getAllStudents();
+
+    const updatedStudents = students.filter(
+      student => student.id !== studentId
+    );
+
+    if (updatedStudents.length === students.length)
+      throw new Error("Student not found");
+
+    await this.saveStudents(updatedStudents);
+  }
 }

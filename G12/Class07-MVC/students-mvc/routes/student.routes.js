@@ -12,3 +12,6 @@ studentRouter.post("/", StudentController.createStudent);
 // 4. Update student
 studentRouter.patch("/:id", StudentController.updateStudent);
 // 5. Delete all students
+studentRouter.delete("/all", StudentController.deleteAllStudents);
+// 6. Delete student
+studentRouter.delete("/:id", StudentController.deleteStudent);
