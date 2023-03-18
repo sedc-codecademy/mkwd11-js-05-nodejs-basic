@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "model": "Honda CBR1000RR",
+    "make": "Honda",
+    "year": 2021,
+    "engineSize": "1000cc",
+    "color": "red",
+    "price": 18000
+  },
+  {
+    "id": "2",
+    "model": "Kawasaki Ninja ZX-10R",
+    "make": "Kawasaki",
+    "year": 2022,
+    "engineSize": "998cc",
+    "color": "green",
+    "price": 15500
+  },
+  {
+    "id": "3",
+    "model": "Ducati Panigale V4",
+    "make": "Ducati",
+    "year": 2020,
+    "engineSize": "1103cc",
+    "color": "black",
+    "price": 28500
+  },
+  {
+    "id": "11decbb4-11b7-4202-812c-d66a02133916",
+    "model": "Yamaha MX",
+    "make": "Yamaha",
+    "year": 2023,
+    "engineSize": "250cc",
+    "color": "blue",
+    "price": 10000
+  },
+  {
+    "id": "23d301e3-b5c4-4372-ade6-9c988246515b",
+    "model": "Honda MX",
+    "make": "Honda",
+    "year": 2023,
+    "engineSize": "250cc",
+    "color": "orange/red",
+    "price": 9500
+  }
+]
