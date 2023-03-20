@@ -1,11 +1,8 @@
 import { DataService } from "../services/data.service.js";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { v4 as uuid } from "uuid";
+import { pathBuilder } from "../utils/utils.js";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const studentsPath = path.join(__dirname, "..", "data", "students.json");
+const studentsPath = pathBuilder(["..", "data", "students.json"]);
 
 // Model files are in charge of CRUD operations with the database (students.json)
 export class StudentModel {
