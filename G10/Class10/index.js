@@ -1,9 +1,14 @@
 import express from 'express';
 import cors from 'cors'
 import router from './router.const.js'
+import dotenv from 'dotenv';
 
-const PORT = 3000;
-const HOSTNAME = 'localhost';
+dotenv.config()
+
+const PORT = process.env.PORT || 3000;
+const HOSTNAME = process.env.HOSTNAME || 'localhost';
+
+// console.log('test env var', process.env.TEST)
 
 const app = express();
 

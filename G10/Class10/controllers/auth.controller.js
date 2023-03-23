@@ -3,19 +3,22 @@ import AuthModel from '../models/auth.model.js'
 const authModel = new AuthModel()
 
 export default class AuthController {
-    registerUser(req, res) {
+    async registerUser(req, res) {
         const userData = req.body;
         
-        const newUser = authModel.registerUser(userData);
+        const newUser = await authModel.registerUser(userData);
 
         res.status(200).send(newUser)
     }
 
-    loginUser(req, res) {
+    async loginUser(req, res) {
         const userData = req.body;
 
-        authModel.loginUser(userData)
-    
-        res.sendStatus(200)
+        try {
+            const loginData = await authModel.loginUser(userData)
+            res.status(200).send(loginData)
+        } catch (error) {
+            res.status(400).send(error.message)
+        }        
     }
 }
