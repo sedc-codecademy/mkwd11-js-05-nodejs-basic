@@ -63,7 +63,7 @@ export class StudentModel {
     const updatedStudent = { ...foundStudent, ...updateData };
 
     const updatedStudents = students.map(student =>
-      student.id === updatedStudent.id ? foundStudent : student
+      student.id === updatedStudent.id ? updatedStudent : student
     );
 
     await this.saveStudents(updatedStudents);
