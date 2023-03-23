@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-class DataService {
+export default class DataService {
     static async readFile(path) {
         const data = await fs.readFile(path, { encoding: 'utf-8' })
         return JSON.parse(data)
