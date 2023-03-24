@@ -22,11 +22,12 @@ export default class AuthController {
         }        
     }
 
-    refreshToken(req, res) {
+    async refreshToken(req, res) {
         const refreshToken = req.body.refreshToken;
         
         try {
-            authModel.refreshToken(refreshToken)
+            const response = await authModel.refreshToken(refreshToken)
+            res.status(200).send(response);
         } catch (error) {
             res.sendStatus(400)
         }

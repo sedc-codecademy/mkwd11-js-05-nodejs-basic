@@ -11,12 +11,13 @@ export default class AuthModel {
         const user = {
             id: uuidv4(),
             username: userData.username,
-            password: hashedPassword
+            password: hashedPassword,
+            refreshTokens: []
         }
 
         await DataService.saveFile('./data/users.json', [user])
 
-        const { password, ...everythingElse } = user;
+        const { password, refreshTokens, ...everythingElse } = user;
 
         return everythingElse;
     }
@@ -51,21 +52,42 @@ export default class AuthModel {
 
             DataService.saveFile('./data/users.json', users)
 
-            const { password, ...whatIsLeftOfUser } = user;
+            const { password, refreshTokens, ...whatIsLeftOfUser } = user;
             return { user: whatIsLeftOfUser, token, refreshToken };
         } else {
             throw new Error('Invalid credentials')
         }
     }
 
-    refreshToken(token) {
+    async refreshToken(token) {
         const { userId } = verifyRefreshToken(token)
 
         if (!userId) throw new Error(`User doesn't exist`)
 
+        // check if user with such ID exists in app
+        const users = await DataService.readFile('./data/users.json');
+
+        const usersIndex = users.findIndex(u => u.id === userId);
+
+        if (usersIndex === -1) throw new Error(`User not valid`)
+
+        // check if refresh token is saved in users property
+
+        const refreshTokenExists = users[usersIndex].refreshTokens.includes(token)
+
+        if (!refreshTokenExists) throw new Error('Something went wrong')
+
+        // delete existing refresh token
+
+        users[usersIndex].refreshTokens = users[usersIndex].refreshTokens.filter(rf => rf !== token)
+
         const accessToken = createAccessToken(userId)
 
         const refreshToken = createRefreshToken(userId);
+
+        // add new refresh token to users profile
+
+        await DataService.saveFile('./data/users.json', users)
 
         return {
             accessToken,
@@ -73,6 +95,3 @@ export default class AuthModel {
         }
     }
 }
-
-//"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxOTI4YWVmMi0zODg4LTQ5NGMtYTAxOC04Yzg4YzNmYmM3ZjciLCJpYXQiOjE2Nzk2MDAzMzMsImV4cCI6MTY3OTYwMDkzM30.EKSPqFPadlD2BOHwpNz-LPcJ6r6DiJvdKdeTfs-AMFg",
-//"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxOTI4YWVmMi0zODg4LTQ5NGMtYTAxOC04Yzg4YzNmYmM3ZjciLCJpYXQiOjE2Nzk2MDAzMzMsImV4cCI6MTY4MDIwNTEzM30.25jH80-LQlLlftCUH6HfQsV9cYz3Gsipt0C_oCdcslM"
