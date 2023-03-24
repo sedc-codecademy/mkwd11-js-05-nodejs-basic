@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "firstName": "test ime",
+    "lastName": "test prezime",
+    "id": "a33333a2-8446-408e-8c88-7a6ff88a11c1"
+  },
+  {
+    "firstName": "Ivan",
+    "lastName": "Jamadilovski",
+    "id": "48ff9045-1f89-4d9b-b70c-ff03a5f6892e"
+  }
+]
