@@ -7,6 +7,7 @@
     <title>Student List</title>
 </head>
 <body>
+    <%- include('./templates/header.ejs') %>
     <h2>Student List</h2>
     <ol>
         <% for(let student of students) { %>
@@ -15,5 +16,6 @@
             </li>
         <% } %>
     </ol>
+    <%- include('./templates/footer.ejs') %>
 </body>
 </html>
