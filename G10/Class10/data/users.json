@@ -1,0 +1,10 @@
+[
+  {
+    "id": "63bfb8cb-cc67-4afe-8ee9-b2b911dea447",
+    "username": "ivo.kostovski@gmail.com",
+    "password": "$2a$10$Zf/lueCJviLxqZm/pZSflusdtqeStzAwfAv0U8cr/mVHcc5Z0T0Eu",
+    "refreshTokens": [
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2JmYjhjYi1jYzY3LTRhZmUtOGVlOS1iMmI5MTFkZWE0NDciLCJpYXQiOjE2Nzk2NzYzMzEsImV4cCI6MTY4MDI4MTEzMX0.Bi-p7nYnT5dzy9UkcNDEy8AK1ZgdmP9ccf-f3y-oIzQ"
+    ]
+  }
+]

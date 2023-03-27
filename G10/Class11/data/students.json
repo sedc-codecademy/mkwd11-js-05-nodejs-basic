@@ -1,0 +1,17 @@
+[
+  {
+    "firstName": "test ime",
+    "lastName": "test prezime",
+    "id": "a33333a2-8446-408e-8c88-7a6ff88a11c1"
+  },
+  {
+    "firstName": "Ivan",
+    "lastName": "Jamadilovski",
+    "id": "48ff9045-1f89-4d9b-b70c-ff03a5f6892e"
+  },
+  {
+    "firstName": "Nov",
+    "lastName": "student",
+    "id": "25e4ac80-c6e9-4ab6-b32b-4832f61e59e6"
+  }
+]
