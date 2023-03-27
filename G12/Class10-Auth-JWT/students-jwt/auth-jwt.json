@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "2c02a78d-ab0c-43be-933c-ea575ac015b4",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"First\",\r\n    \"lastName\": true,\r\n    \"email\": \"second@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"second@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZjQ0Mzk5My02OTc2LTRkMWEtYWY0ZS0zMmNhYTAzMzQyMWQiLCJpYXQiOjE2Nzk5NDI2NTIsImV4cCI6MTY4MDU0NzQ1Mn0.eDYIPTm7LF0V2vwqmx9EiNnvM9N9E4OtBEoL7Dnoss8",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Access Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZjQ0Mzk5My02OTc2LTRkMWEtYWY0ZS0zMmNhYTAzMzQyMWQiLCJpYXQiOjE2Nzk5NDI2NTIsImV4cCI6MTY4MDU0NzQ1Mn0.eDYIPTm7LF0V2vwqmx9EiNnvM9N9E4OtBEoL7Dnoss8",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
